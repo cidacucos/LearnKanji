@@ -42,10 +42,6 @@ function dataLoad(){
 };
 dataLoad();
 
-
-
-
-
 //Reset Data
 function dataReset(){
     localStorage.clear();

@@ -66,7 +66,17 @@ function populateChoices() {
       const filteredList =  list.filter(obj => obj.Index[0] === String(randomIndex));
       const test = getRandomInt(0,filteredList.length-1)
       var randomObject = filteredList[test];
-      if(randomObject[subject][0] !== '-') {
+      
+      //If repeat limit is reached then refresh repeat limitation
+      if(finalListKanji.length+1 == kanjiMax){
+        say(finalListKanji.length+1);
+        say(kanjiMin);
+        say(kanjiMax);
+        finalListKanji=[];
+      }
+
+      //Check if randomly selected Kanji has an answer to the subject and if it had been chosen already
+      if(randomObject[subject][0] !== '-' && !finalListKanji.includes(randomObject['Kanji'][0])) {
         return randomObject;
       }
     }
@@ -114,6 +124,7 @@ function populateChoices() {
 
   //Add question to results list
   finalList.push(currentKanji.Kanji.toString());
+  finalListKanji.push(currentKanji.Kanji.toString());
   finalList.push(correctAnswer);
  
 }
@@ -137,10 +148,14 @@ function constFinal(){
         listDiv.appendChild(divDiv);
       listItem.appendChild(listDiv);
 
-      //Create span within list
+      //Create span within list; this is where the Kanji character is created
       const listSpan = document.createElement('span');
+      finalKanjiId = "finalKanji"+i;
+      listSpan.id=finalKanjiId;
       listSpan.innerHTML = finalList[i*3];
       listItem.appendChild(listSpan); 
+
+      
 
       //Create p within list
       const listP = document.createElement('p');
@@ -151,8 +166,6 @@ function constFinal(){
       listP.style.fontSize = "100%";
       listP.style.alignItems = "center";
       listP.style.textAlign = "center";
-
-
 
       //Color
       divDiv.style.backgroundColor = "green";
@@ -167,17 +180,13 @@ function constFinal(){
       divDiv.style.backgroundColor = "red";
     };
 
-
-    
-
     listP.innerHTML = pString;
     listItem.appendChild(listP);
 
     finalResults.appendChild(listItem);
+
     say(i);
   };
-
-
 };
 
 //Button Actions---------------------------------------------------------------------------------------------------
@@ -193,6 +202,7 @@ document.addEventListener('tizenhwkey', function(e) {
 homeNew.addEventListener("click", () => {
   finalResults.innerHTML = '';
   finalList = [];
+  finalListKanji = [];
   questionCounter=1
   displayOff(home);
   displayOn(homeCon);
@@ -333,6 +343,18 @@ resultBtn.addEventListener('click', () => {
   //Check counter
   if (questionCounter===Number(userQuestions)+1){
     constFinal();
+
+    //Construct definitions for final screen
+    function constFinalDef(){
+      for(let i=0;i<Number(userQuestions);i++){
+        document.getElementById('finalKanji'+i).addEventListener("click", () => {
+          constructDef(document.getElementById('finalKanji'+i).textContent);
+          displayOff(final);
+          displayOn(definition);
+        });
+      }
+    }
+    constFinalDef()
     displayOff(result);
     displayOn(final);
   } else {
