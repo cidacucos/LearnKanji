@@ -373,15 +373,15 @@ finalBtn.addEventListener("click", () => {
 });
 finalTabSummary.addEventListener("click", () => {
   displayOn(finalSummary);
-  finalTabSummary.style.backgroundColor = "#4b70d6";
+  finalTabSummary.className="final-tab accent"
 
   displayOff(finalQuestions);
-  finalTabQuestions.style.backgroundColor = "black";
+  finalTabQuestions.className="final-tab"
 });
 finalTabQuestions.addEventListener("click", () => {
   displayOn(finalQuestions);
-  finalTabQuestions.style.backgroundColor = "#4b70d6";
+  finalTabQuestions.className="final-tab accent"
   
   displayOff(finalSummary);
-  finalTabSummary.style.backgroundColor = "black";
+  finalTabSummary.className="final-tab"
 });
