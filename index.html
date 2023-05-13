@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"">
     <title>Kanji Quiz</title>
     <link rel="stylesheet" href="css/style.css">
-</head>                                 
+</head>
 <body>
     <!--Main Menu-->
     <div id="home" class="container gif">
@@ -26,10 +26,36 @@
     <div id="definition" class="container scroll">
         <h1 id="def-index"></h1>
         <div id="def-kanji"></div>
+        <div class="center" id="def-keyword"></div>
+
+        <div id="def-divider" class="design-divider">
+            <div class="design-divider-left accent"></div>
+            <div class="design-divider-mid accent"></div>
+            <div class="design-divider-right accent"></div>
+            <div class="design-divider-cover"></div>
+        </div>
+        
+        <div id="def-arrow-container">
+            <span id="def-arrow"></span>
+        </div>
         <div id = "def-body">
-            <span id="def-eng"></span>
-            <span id="def-ony"></span>
-            <span id="def-kun"></span>
+            <h3>English</h3>
+                <span id="def-eng"></span>
+            <h3>Onyomi</h3>
+                <span id="def-ony"></span>
+            <h3>Kunyomi</h3>
+                <span id="def-kun"></span>
+            <h3>Examples</h3>
+                <span class="def-ex" id="def-ex1"></span>
+                <span class="def-ex" id="def-ex2"></span>
+                <span class="def-ex" id="def-ex3"></span>
+                <span class="def-ex" id="def-ex4"></span>
+            <h3>Origin</h3>
+                <p id="def-origin"></p>
+            <h3>Mnemonics</h3>
+                <p class="def-mnemonic" id="def-mnemonic1"></p>
+                <br>
+                <p class="def-mnemonic" id="def-mnemonic2"></p>
         </div>
     </div>
     <!--Settings-->
@@ -86,9 +112,7 @@
     <div id="question" class="container">
         <div id="question-kanji" class="kanji-character"></div>
         <div id="question-body">
-            <div id="question-left" class="question-sidebar">
-                3 Hints Left!
-            </div>
+            <div id="question-left" class="question-sidebar"></div>
             <div id="question-selection">
                 <div class="choice accent" id="choice-1"></div>
                 <div class="choice accent" id="choice-2"></div>
@@ -116,8 +140,18 @@
     </div>
     <!--Result container after question is answered-->
     <div id="result" class="container">
-        <div><h1 id="result-text"></h1></div>
+        <div id="result-title"><h1 id="result-text"></h1></div>
         <div id="result-kanji" class="kanji-character"></div>
+        <div id="result-divider" class="design-divider">
+            <div class="design-divider-left accent"></div>
+            <div class="design-divider-mid accent"></div>
+            <div class="design-divider-right accent"></div>
+            <div class="design-divider-cover"></div>
+        </div>
+        <div class="center" id="result-desc-container">
+            <p class="center" id="result-desc"></p>
+        </div>
+        
         <div id="result-btn" class="btn accent">Next</div>
     </div>
     <!--Final Results-->

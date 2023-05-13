@@ -24,10 +24,20 @@ const dictList = id('dict-list');
 
 const defIndex = id('def-index');
 const defKanji = id('def-kanji');
+const defArrow = id('def-arrow-container');
 const defBody = id('def-body');
+const defKeyword = id('def-keyword');
 const defEng = id('def-eng');
 const defOny = id('def-ony');
 const defKun = id('def-kun');
+const defEx1 = id('def-ex1');
+const defEx2 = id('def-ex2');
+const defEx3 = id('def-ex3');
+const defEx4 = id('def-ex4');
+const defOrigin = id('def-origin');
+const defMnemonic1 = id('def-mnemonic1');
+const defMnemonic2 = id('def-mnemonic2');
+
 
 const settings = id('settings');
 const settTitle = id('sett-title');
@@ -59,6 +69,7 @@ const hintBtn = id('hint-btn');
 
 const result = id('result');
 const resulttext = id('result-text');
+const resultDesc = id('result-desc');
 const resultBtn = id('result-btn');
 const resultKanji = id('result-kanji');
 
@@ -124,15 +135,6 @@ readCSV(filename)
         }
       }
     }); 
-  
-    //Convert values into titles.
-    masterList.forEach((obj) => {
-      for (let prop in obj) {
-        if (Array.isArray(obj[prop])) {
-          obj[prop] = obj[prop].map((value) => value.toLowerCase().replace(/\b(\w)/g, (s) => s.toUpperCase()));
-        }
-      }
-    });
 
     //Condense master list so that there is one unique kanji containing arrays of each property
     const condensedObject = {};

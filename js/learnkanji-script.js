@@ -1,16 +1,24 @@
 //Declare variables ---------------------------------------------------------------------------------------------------
 let currentKanji, correctAnswer;
 
-//Funcitons for navigation.
+//Functions for navigation.
 var historyPage = [];
 
 function displayOn(element) {
+  
   element.style.display = 'flex';
   currentPage = element;
+  if(element=home){
+    releaseKeepScreenOn();
+  };
 };
 function displayOff(element) {
+  
   element.style.display = 'none';
   historyPage.unshift(element);
+  if(element=home){
+    requestKeepScreenOn();
+  };
 };
 
 //Make list of history > Back button clicks > Turn off current, turn on last
@@ -76,7 +84,7 @@ function populateChoices() {
       }
 
       //Check if randomly selected Kanji has an answer to the subject and if it had been chosen already
-      if(randomObject[subject][0] !== '-' && !finalListKanji.includes(randomObject['Kanji'][0])) {
+      if(randomObject[subject][0] !== '-' && randomObject[subject][0] !== '' && !finalListKanji.includes(randomObject['Kanji'][0])) {
         return randomObject;
       }
     }
@@ -126,7 +134,7 @@ function populateChoices() {
   finalList.push(currentKanji.Kanji.toString());
   finalListKanji.push(currentKanji.Kanji.toString());
   finalList.push(correctAnswer);
- 
+
 }
 
 //Final results function
@@ -188,7 +196,24 @@ function constFinal(){
     say(i);
   };
 };
+//Navigation---------------------------------------------------------------------------------------------------
+// Request to keep the screen on
+function requestKeepScreenOn() {
+  var power = navigator.power;
 
+  if (power) {
+    power.request("SCREEN", "SCREEN_NORMAL");
+  }
+}
+
+// Release the screen on request
+function releaseKeepScreenOn() {
+  var power = navigator.power;
+
+  if (power) {
+    power.release("SCREEN");
+  }
+}
 //Button Actions---------------------------------------------------------------------------------------------------
 ////Go back to most recent page
 document.addEventListener('tizenhwkey', function(e) {
@@ -291,19 +316,20 @@ for (let i = 0; i < choiceElems.length; i++) {
   choiceElems[i].addEventListener('click', () => {
     displayOff(question);
     displayOn(result);
+    finalList.push(choiceElems[i].outerText);
     //If correct:
     if (choiceElems[i].textContent === correctAnswer) {
       //Display correct result screen
-      
       resulttext.textContent = 'Correct!';
+      resultDesc.innerHTML = "Your Answer: " + finalList[(questionCounter-2)*3+1];
 
     //If incorrect:
     } else {
       //Display incorrect result screen
       resulttext.textContent = 'Incorrect!';
+      resultDesc.innerHTML = "Correct Answer: " + finalList[(questionCounter-2)*3+1] + "<br>Your Answer: " + finalList[(questionCounter-2)*3+2];
     }
-    finalList.push(choiceElems[i].outerText);
-    say(finalList);
+    
   });
 }
 

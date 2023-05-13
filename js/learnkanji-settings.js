@@ -85,7 +85,7 @@ function settDifficulty(){
     kanjiMax=max;
   };
   if (diff==="all"){
-    r(1,1945);
+    r(1,2328);
   } if (diff==="beginner"){
     r(1,50);
   } if (diff==="novice"){
@@ -95,7 +95,7 @@ function settDifficulty(){
   } if (diff==="advanced"){
     r(501,1000);
   } if (diff==="expert"){
-    r(1001,1945);
+    r(1001,2328);
   } if (diff==="custom"){
     const strElement = toString(diff);
     const rangeArr = strElement.split("-");
