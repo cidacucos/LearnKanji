@@ -22,10 +22,10 @@ const dictTitle = id('dict-title');
 const definition = id('definition'); 
 const dictList = id('dict-list');
 
+const defBody = id('def-body');
 const defIndex = id('def-index');
 const defKanji = id('def-kanji');
 const defArrow = id('def-arrow-container');
-const defBody = id('def-body');
 const defKeyword = id('def-keyword');
 const defEng = id('def-eng');
 const defOny = id('def-ony');

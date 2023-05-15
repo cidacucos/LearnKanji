@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--1-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +16,7 @@
         <div id="home-settings" class="home-btn accent">Settings</div>
     </div>
     <!--Dictionary-->
-    <div id="dictionary" class="container scroll">
+    <div id="dictionary" class="container scroll center">
         <h1 id="dict-title" class="h1-top">Dictionary</h1>
         <ul id="dict-list" class="list">
             <li></li>
@@ -60,26 +59,25 @@
         </div>
     </div>
     <!--Settings-->
-        <!--Number of Questions, Type of Questions, Difficulty, Theme-->
     <div id="settings" class="container scroll">
         <h1 id="sett-title" class="h1-top">Settings</h1>
-        <ul id="sett-list" class="list">
+        <ul id="sett-list" class="list center">
             <li></li>
             <li class="sett-choice">
                 <label class="sett-title">Number of Questions:</label>
-                <input id="user-questions" wrap="hard" class="sett-value" value="40">
+                <input id="user-questions" wrap="hard" class="sett-value accent-text" value="40">
             </li>          
             <li class="sett-choice">
                 <label class="sett-title">Subject(s): </label>
                 <div id="user-subjects" class="sett-subject">
-                    <button class="sett-subject-btn">Select...</button>
-                    <div class="sett-subject-content">
+                    <button class="sett-subject-btn accent-text">Select...</button>
+                    <div class="sett-subject-content accent-text">
                     </div>
                 </div>
             </li>
             <li class="sett-choice">
                 <label class="sett-title" for="sett-difficulty">Level: </label>
-                <select id="sett-difficulty" name="sett-difficulty" onchange="showOther()">
+                <select class="accent-text" id="sett-difficulty" name="sett-difficulty" onchange="showOther()">
                     <option id="sett-difficulty-all" class="sett-value" value="all">All</option>
                     <option id="sett-difficulty-beginner" class="sett-value" value="beginner">Beginner</option>
                     <option id="sett-difficulty-novice" class="sett-value" value="novice">Novice</option>
@@ -142,13 +140,15 @@
     <!--Result container after question is answered-->
     <div id="result" class="container">
         <div id="result-title"><h1 id="result-text"></h1></div>
-        <div id="result-kanji" class="kanji-character"></div>
+        <div id="result-kanji-container"><div id="result-kanji" class="kanji-character"></div></div>
+
         <div id="result-divider" class="design-divider">
             <div class="design-divider-left accent"></div>
             <div class="design-divider-mid accent"></div>
             <div class="design-divider-right accent"></div>
             <div class="design-divider-cover"></div>
         </div>
+
         <div class="center" id="result-desc-container">
             <p class="center" id="result-desc"></p>
         </div>

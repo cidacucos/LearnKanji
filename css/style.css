@@ -82,9 +82,9 @@ p {
     outline: none;
     background: none;
     background-color: transparent;
-  }
+}
 
-  .center {
+.center {
     justify-items: center;
     justify-content: center;
     align-items: center;
@@ -92,9 +92,29 @@ p {
     align-content: center;
 }
 
+
+.list {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 10%;
+    padding: 0;
+
+    width: 50%;
+    height: auto;
+    
+    list-style-type: none;
+    color:white;
+    font-size: 200%;
+}
+
+ul li {
+    position: relative;
+    font-size:100%;
+}
 /*---------------------------------------- Custom ---------------------------------------- */
 .gif{
-    background-image: url("../assets/test.gif");
+    background-image: url("../assets/green.gif");
     background-repeat: repeat;
     background-size: cover;
     background-position: center;
@@ -107,7 +127,6 @@ p {
     align-items: center;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
     background-color:rgb(0, 0, 0);
     overflow: hidden;
 }
@@ -137,7 +156,7 @@ p {
 .design-divider{
     position: absolute;
     top:0px;
-    height: 200%;
+    height: 100%;
     width: 100%;
     z-index:0;
 }
@@ -177,6 +196,14 @@ p {
     z-index: 1;
 }
 
+.accent{
+    background-color:#53a586;
+}
+.accent-text{
+    color: #53a586;
+}
+
+
 /*---------------------------------------- Home ---------------------------------------- */
 #home {
     position:absolute;
@@ -199,23 +226,6 @@ p {
 }
 #dictionary {
     display:none;
-}
-ul li {
-    font-size:100%;
-}
-
-.list {
-    width: 50%;
-    display: block;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    color:white;
-    font-size: 200%;
-    margin-top: 0;
-    margin-bottom: 10%;
-    padding: 0;
-    list-style-type: none;
 }
 
 #settings {
@@ -324,6 +334,10 @@ ul li {
     display: none;
 }
 
+#def-divider {
+    height:720px;
+}
+
 #def-index {
     display: flex;
     justify-content: center;
@@ -356,7 +370,7 @@ ul li {
 }
 #def-keyword {
     position: absolute;
-    top: 15%;
+    top: 60px;
     color:black;
     opacity: 0.50;
     font-size: 150px;
@@ -426,13 +440,23 @@ ul li {
 #result {
     display:none;
 }
+#result-divider{
+    height: 100%;
+    z-index: 0;
+}
 #result-title{
     position: inherit;
-    top:30px;   
+    top:30px;
+    z-index: 1;   
+}
+#result-kanji-container{
+    position: inherit;
+    top:35%;
 }
 #result-kanji{
     position: inherit;
-    top:100px; 
+    z-index: 1; 
+    background-color: red;
 }
 #result-desc-container{
     position: inherit;
@@ -450,34 +474,30 @@ ul li {
 
 /*---------------------------------------- Settings ---------------------------------------- */
 #sett-list {
-    width: 95%;
+    width: 90%;
     margin-bottom: 100%;
 }
 .sett-choice {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 15%;
-    width: 80%;
-    margin:5%;
-    font-size: 60%;
-    border: 2px solid white;
-    border-radius: 20px;
-    padding: 3%;
-    
+    height: auto;
+    width: 90%;
+    margin:5px;
+    font-size: 50%;
+    padding: 5px; 
 }
 .sett-title {
     flex: 1;
     word-wrap: break-word;
     text-align: left;
-    background-color: transparent;
+
 }
 .sett-title-large {
     flex: 1;
     font-size: 150%;
     word-wrap: break-word;
     text-align: center;
-    background-color: transparent;
 }
 .sett-value {
     flex: 1;
@@ -488,7 +508,7 @@ ul li {
     width: 50%;
     height: 100%;
     border: none; 
-    color:  rgb(93, 192, 118);
+
     background-color: transparent; 
 }
 
@@ -498,7 +518,7 @@ select {
     width: 50%;
     height: 100%;
     border: none; 
-    color:  rgb(93, 192, 118);
+
     background-color: transparent; 
 }
 
@@ -515,7 +535,7 @@ select {
     word-wrap: break-word;
     text-align: right;
     font-size: 100%;
-    color:  rgb(93, 192, 118);
+
     border: none;
     background-color: transparent;
     }
@@ -524,11 +544,10 @@ select {
     display: none;
     position: absolute;
     text-align: left;
-    right:0;
-    width: 200px;
+    left:-300%;
+    width: 500%;
     border-radius: 10px;
     z-index: 1;
-    color: rgb(93, 192, 118);
     background-color: white;
 }
 
@@ -672,9 +691,6 @@ select {
     align-items: center;
     text-align: center;
     width: 100%;
-}
-.accent{
-    background-color:#53a586;
 }
 
 
